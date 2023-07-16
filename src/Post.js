@@ -45,6 +45,7 @@ const Post = () => {
             setName('')
             setEmail('')
             setPhone('')
+            setEdit(0)
             setToggle(false)
             return
            
