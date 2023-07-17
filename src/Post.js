@@ -105,8 +105,8 @@ const Post = () => {
                 <tr>
                     <th>ID</th>
                     <th>NAME</th>
-                    <th>PHONE</th>
                     <th>EMAIL</th>
+                    <th>PHONE</th>
                     <th>ACTION</th>
                 </tr>
             </thead>
@@ -117,8 +117,8 @@ const Post = () => {
             <tr key={i}>
                 <td>{a.id}</td>
                 <td>{a.name}</td>
-                <td>{a.phone}</td>
                 <td>{a.email}</td>
+                <td>{a.phone}</td>
                 <td>
                     <button onClick={()=>handleEdit(a.id)} className='btn btn1'><FaEdit/></button>
                     <button onClick={()=>handleDelete(a.id)} className='btn'><TiDelete/></button>
