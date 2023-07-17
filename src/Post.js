@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaEdit } from 'react-icons/fa';
 import { TiDelete } from 'react-icons/ti';
 import Axios from 'axios'
-let ide = 10
+
 let foo = '</>'
 const Post = () => {
     const [data,setData] = useState([]);
@@ -11,6 +11,7 @@ const Post = () => {
     const [phone,setPhone] = useState('');
     const [edit,setEdit] = useState(0);
     const [toggle,setToggle] = useState(false)
+    let ide= data.length
     useEffect(()=>{
         Axios('https://jsonplaceholder.typicode.com/users').then(result=>setData(result.data));
     },[])
@@ -75,21 +76,23 @@ const Post = () => {
         <div className="inputCard">
         <p className={toggle?'green':'blue'}>{toggle?'EDIT DATA':'ADD DATA'}</p>
         <form onSubmit={handleSubmit}>
-            <input value={name} 
+            <input value={name} required
             onChange={(e)=>setName(e.target.value)}  type="text" 
             placeholder='Enter name' />
 
 
             <input 
+            required
             value={email} 
-            type="text" 
+            type="email" 
             placeholder='Enter email' 
             onChange={(e)=>setEmail(e.target.value)}/>
 
 
             <input 
+            required
             value={phone} 
-            type="text" 
+            type='tel'
             placeholder='Enter phone Number' 
             onChange={(e)=>setPhone(e.target.value)}/>
 
