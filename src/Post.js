@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { FaEdit } from 'react-icons/fa';
+import { TiDelete } from 'react-icons/ti';
 import Axios from 'axios'
 let ide = 10
+let foo = '</>'
 const Post = () => {
     const [data,setData] = useState([]);
     const [name,setName] = useState('');
@@ -64,8 +67,13 @@ const Post = () => {
     
     }
   return (
-    <div>
-        <p className="names">POST METHOD</p>
+    
+    <div className="win">
+      
+    <div className='con'>
+    <p className='title'>CRUD OPERATION</p>
+        <div className="inputCard">
+        <p className={toggle?'green':'blue'}>{toggle?'EDIT DATA':'ADD DATA'}</p>
         <form onSubmit={handleSubmit}>
             <input value={name} 
             onChange={(e)=>setName(e.target.value)}  type="text" 
@@ -86,11 +94,13 @@ const Post = () => {
             onChange={(e)=>setPhone(e.target.value)}/>
 
 
-            <button type='submit'>
-            {toggle?'Add Edit':'ADD'}</button>
+            <button className={toggle?'btn ab b':'btn ab a'} type='submit'>
+            {toggle?'EDIT':'ADD'}</button>
         </form>
-
-        <table>
+       
+        </div>
+    <div className="card-body">
+        <table className="table table-bordered">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -110,8 +120,8 @@ const Post = () => {
                 <td>{a.phone}</td>
                 <td>{a.email}</td>
                 <td>
-                    <button onClick={()=>handleEdit(a.id)}>Edit</button>
-                    <button onClick={()=>handleDelete(a.id)}>Delete</button>
+                    <button onClick={()=>handleEdit(a.id)} className='btn btn1'><FaEdit/></button>
+                    <button onClick={()=>handleDelete(a.id)} className='btn'><TiDelete/></button>
                 </td>
             </tr>
             )
@@ -119,9 +129,10 @@ const Post = () => {
               
             </tbody>
         </table>
-       
+        </div>
         
-
+        <p className='footer'>&copy;chandru{foo} </p>
+    </div>
     </div>
   )
 }
